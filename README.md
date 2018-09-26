@@ -1,1 +1,2 @@
 # doc-byte-checker
+* Chromeアドオンです。
