@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>document</title>
+<link rel="stylesheet" href="css/popup.css">
+<script src="js/analytics.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/popup.js"></script>
+</head>
+
+<body>
+  <div id="container" class="active">
+    <div class="comeback"><div class="left">&gt;</div><div class="right">&lt;</div></div>
+    <div class="head-line">
+      <p class="open-set"><i></i></p>
+      <h1>Doc Byte Checker</h1>
+      <p class="open-help"><i>?</i></p>
+    </div>
+    <h2>現在の設定</h2>
+    <table class="option-tbl">
+      <tr><th>検索対象の拡張子</th><td><p id="cr-ids"></p><p id="cr-href"></p></td></tr>
+      <tr><th>容量表記[KB]</th><td><p id="cr-kb"></p></td></tr>
+      <tr><th>容量表記[MB]</th><td><p id="cr-mb"></p></td></tr>
+    </table>
+    <p id="Go"><span>Check</span></p>
+  </div>
+  <div id="option">
+    <div class="optionset">
+      <h2 class="has-help">チェック対象条件設定<div class="open-help"><i>?</i></div></h2>
+      <h3>[拡張子]</h3>
+      <div id="exts">
+        <label><input type="checkbox" id="pdf" value="pdf" name="ext"><span>.pdf</span></label>
+        <label><input type="checkbox" id="xls" value="xls,xlsx" name="ext"><span>.xls/.xlsx</span></label>
+        <label><input type="checkbox" id="ppt" value="ppt,pptx" name="ext"><span>.ppt/.pptx</span></label>
+        <label><input type="checkbox" id="doc" value="doc,docx" name="ext"><span>.doc/.docx</span></label>
+        <label><input type="checkbox" id="txt" value="txt" name="ext"><span>.txt</span></label>
+        <label><input type="checkbox" id="zip" value="zip" name="ext"><span>.zip</span></label>
+      </div>
+      <h3>[href]</h3>
+      <div id="href">
+        <label>href値に<input type="text" id="freeinput" value="" name="href">を含むaタグ</label>
+      </div>
+    </div>
+    <div class="optionset">
+      <h2 class="has-help">容量表記設定<div class="open-help"><i>?</i></div></h2>
+      <div class="sizeset">
+        <h3>[KB]</h3>
+        <div class="notation">
+          <label><input type="radio" value="01" name="kb"><span>Default</span></label>
+        </div>
+        <h4>小数点 第<select class="math_select" name="math_kb" id="math_kb"><option value="2" selected>2</option><option value="1">1</option></select>位を</h4>
+        <div class="notation">
+          <label><input type="radio" value="02" name="kb"><span>Round（四捨五入）</span></label>
+          <label><input type="radio" value="03" name="kb"><span>Floor（切捨）</span></label>
+        </div>
+      </div>
+      <div class="sizeset">
+        <h3>[MB]</h3>
+        <div class="notation">
+          <label><input type="radio" value="01" name="mb"><span>Default</span></label>
+        </div>
+        <h4>小数点 第<select class="math_select" name="math_mb" id="math_mb"><option value="2" selected>2</option><option value="1">1</option></select>位を</h4>
+        <div class="notation">
+          <label><input type="radio" value="02" name="mb"><span>Round（四捨五入）</span></label>
+          <label><input type="radio" value="03" name="mb"><span>Floor（切捨）</span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="help">
+    <div class="head-line-help">
+      <div id="logo"><img src="images/icon/icon.png" alt=""></div>
+      <h1>機能説明</h1>
+    </div>
+    <ol class="help-order">
+      <li><span class="n">1.</span><p class="title">チェック対象条件設定</p>
+        <p class="des"><em>- 拡張子</em><br>チェックした拡張子のファイルにリンクしているaタグをチェック対象に指定します。</p>
+        <p class="des"><em>- href</em><br>調べたいファイルが拡張子を持たない場合、href属性値の部分一致でチェック対象を指定します。<br>
+        複数指定する場合は,（カンマ）で区切ります。</p>
+      </li>
+      <li><span class="n">2.</span><p class="title">容量表記設定</p>
+        <p>KBの場合とMBの場合でそれぞれ設定できます。</p>
+        <p class="des"><em>- Default</em><br>小数点第二位までそのまま表示します。</p>
+        <p class="des"><em>- Round</em><br>選択した小数点を四捨五入します。</p>
+        <p class="des"><em>- Floor</em><br>選択した小数点を切り捨てます。</p>
+      </li>
+      <li><span class="n">3.</span><p class="title">「Check」を押して実行！！</p></li>
+    </ol>
+    <ul class="note">
+      <li><span class="n">※</span>レスポンスヘッダーにContent-Lengthがない場合、<br>「No response...」が表示されます。</li>
+      <li><span class="n">※</span>ステータスエラーが返ってきた場合、赤帯でステータスコードが表示されます。</li>
+    </ul>
+  </div>
+</body>
+</html>

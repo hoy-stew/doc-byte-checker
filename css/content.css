@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+.add-ons-highlight {
+  position: relative;
+}
+.add-ons-size {
+  /* position: absolute;
+  display: block; */
+  display: inline-block;
+  min-width: 7em;
+  /* top: 50%;
+  left: 100%;
+  margin-top: -1em; */
+  margin: 3px;
+  padding: .1em .2em;
+  background: #2FAB3E;
+  box-shadow:0px 0px 6px 3px rgba(0,0,0,0.2);
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  animation: addOnsFadeIn 0.3s;
+  z-index: 50;
+  box-sizing: border-box;
+  font: 16px/1.5 Arial, Helvetica, sans-serif;
+}
+.add-ons-status {
+  /* position: absolute;
+  display: block; */
+  display: inline-block;
+  min-width: 4em;
+  /* top: 50%;
+  left: 100%;
+  margin-top: -1em; */
+  margin: 3px;
+  padding: .1em .2em;
+  background: #f00;
+  box-shadow:0px 0px 6px 3px rgba(0,0,0,0.2);
+  color: #fff;
+  text-align: center;
+  font-style: italic;
+  white-space: nowrap;
+  animation: addOnsFadeIn 0.3s;
+  z-index: 50;
+  box-sizing: border-box;
+  font: 16px/1.5 Arial, Helvetica, sans-serif;
+}
+.add-ons-loading {
+  /* position: absolute;
+  display: block; */
+  display: inline-block;
+  min-width: 4em;
+  /* top: 50%;
+  left: 100%;
+  margin-top: -1em; */
+  margin: 3px;
+  padding: .1em .2em;
+  background: #000;
+  box-shadow:0px 0px 6px 3px rgba(0,0,0,0.2);
+  color: #fff;
+  text-align: center;
+  font-style: italic;
+  white-space: nowrap;
+  animation: addOnsFadeIn 0.3s;
+  z-index: 50;
+  box-sizing: border-box;
+  font: 16px/1.5 Arial, Helvetica, sans-serif;
+}
+
+@keyframes addOnsFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

@@ -1,0 +1,42 @@
+{
+  "manifest_version": 2,
+  "name": "Doc Byte Checker",
+  "description": "PDFなどのドキュメントファイルにリンクしているaタグを検知して、ファイルの容量を表示します。",
+  "version": "1.0.1",
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+  "icons": {
+    "16": "images/icon/icon_16.png",
+    "48": "images/icon/icon_48.png",
+    "128": "images/icon/icon_128.png"
+  },
+  "background": {
+    "scripts": [
+      "js/analytics.js",
+      "js/background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "images/icon/icon_19.png",
+      "38": "images/icon/icon_38.png"
+    },
+    "default_title": "Doc Byte Checker",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "css": ["css/content.css"],
+      "js": ["js/jquery.js","js/content_script.js"]
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "https://*/*",
+    "http://*/*",
+    "storage"
+  ]
+}

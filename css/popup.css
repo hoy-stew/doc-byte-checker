@@ -1,0 +1,391 @@
+@charset "utf-8";
+
+html {
+  font-size: 62.5%;
+}
+body {
+  color: #333;
+  font: 1.4rem/1.5 "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  word-wrap : break-word;
+}
+body *,
+body *::before,
+body *::after {
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  min-width: 340px;
+  height: auto;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+}
+p {
+  margin: 0;
+}
+h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  font-weight: bold;
+  text-align: center;
+}
+h2 {
+  margin: 10px 0 5px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+h2 span {
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+h3 {
+  margin: 5px 0 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+h4 {
+  margin: 5px 0 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+
+
+#container {
+  position: relative;
+  width: 380px;
+  height: 600px;
+  padding: 10px 10px 20px;
+}
+#container .comeback .left,
+#container .comeback .right {
+  width: 0;
+  height: 600px;
+  line-height: 600px;
+  color: #fff;
+  background: rgba(47, 171, 62,0.8);
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: opacity .3s, width .3s;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+}
+#container .comeback .left {
+  left: 0;
+}
+#container .comeback .right {
+  right: 0;
+}
+#option,
+#help {
+  width: 340px;
+  height: 600px;
+  padding: 10px 10px 20px;
+  position: absolute;
+  top: 0;
+}
+#option {
+  left: -340px;
+  background: #fff;
+  border-right: 1px dashed #ccc;
+}
+#help {
+  right: -340px;
+  background: #fbf8cfb5;
+  border-left: 1px dashed #ccc;
+}
+#container,
+#option,
+#help {
+  transform: translateX(0);
+  transition: transform .3s;
+}
+body.help-active #container,
+body.help-active #option,
+body.help-active #help {
+  transform: translateX(-340px);
+}
+body.help-active #container .comeback .right {
+  display: block;
+  width: 40px;
+  opacity: 1;
+}
+body.option-active #container,
+body.option-active #option,
+body.option-active #help {
+  transform: translateX(340px);
+}
+body.option-active #container .comeback .left {
+  display: block;
+  width: 40px;
+  opacity: 1;
+}
+.option-tbl {
+  width: 100%;
+}
+.option-tbl th {
+  width: 100%;
+  display: block;
+  padding: 5px;
+  background: #fbf8cf;
+  text-align: left;
+  font-weight: normal;
+  vertical-align: top;
+  font-size: 1.5rem;
+}
+.option-tbl td {
+  width: 100%;
+  display: block;
+  padding: 5px 5px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+#option > .optionset > h2:first-child {
+  margin-top: 0;
+}
+.optionset + .optionset {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #ccc;
+}
+.sizeset +.sizeset {
+  margin-top: 8px;
+}
+
+.head-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px 8px;
+  border-bottom: 1px solid #ccc;
+}
+.open-set {
+  width: 30px;
+  height: 30px;
+  background: url(../images/icon/setting.png) 0 0 no-repeat;
+  cursor: pointer;
+}
+.open-help {
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  color: #2FAB3E;
+}
+.open-help > i {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #2FAB3E;
+  border-bottom: 3px solid #22832E;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  font-style: normal;
+  color: #fff;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+.open-help:hover > i {
+  top: 2px;
+  border-bottom-width: 1px;
+}
+.has-help {
+  display: flex;
+}
+.has-help .open-help {
+  margin-left: 5px;
+  align-self: flex-end;
+}
+.head-line-help {
+  display: flex;
+  align-items: center;
+}
+#logo {
+  flex: 0 0 64px;
+  margin-right: 10px;
+}
+#logo img {
+  width: 64px;
+}
+#exts {
+  display: flex;
+  margin: 0 -5px;
+  flex-flow: row wrap;
+}
+#exts > label {
+  position: relative;
+  display: block;
+  width: calc(50% - 10px);
+  margin: 5px;
+  cursor: pointer;
+}
+#exts label input {
+  position: absolute;
+  -webkit-appearance: none;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0;
+  left: 5px;
+  padding: 0;
+  border: 1px solid #ccc;
+  background: #fff;
+  outline: none;
+  z-index: 2;
+}
+#exts label input + span {
+  position: relative;
+  display: block;
+  border: 1px solid #ccc;
+  padding: 5px 5px 5px 20px;
+}
+#exts label input:checked {
+  border-color: #2FAB3E;
+}
+#exts label input:checked + span {
+  background: #fbf8cf;
+}
+#exts label input:checked + span::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: -7px;
+  left: 3px;
+  width: 14px;
+  height: 7px;
+  border-bottom: 2px solid #2FAB3E;
+  border-left: 2px solid #2FAB3E;
+  transform: rotate(-45deg);
+  z-index: 3;
+  content: '';
+}
+#href label input {
+  height: 30px;
+  margin: 10px 5px 0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  background: #fff;
+  outline: none;
+}
+#href label input#freeinput {
+  width: 150px;
+  margin-top: 5px;
+}
+.notation {
+  display: flex;
+  margin: 0 -5px;
+  flex-flow: row wrap;
+}
+.notation > label {
+  position: relative;
+  width: calc(50% - 10px);
+  margin: 5px;
+  display: block;
+  cursor: pointer;
+}
+.notation label input {
+  position: absolute;
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  top: 50%;
+  left: 5px;
+  margin: -7px 0 0;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background: #fff;
+  outline: none;
+}
+.notation label input + span {
+  display: block;
+  border: 1px solid #ccc;
+  padding: 5px 5px 5px 20px;
+}
+.notation label input:checked {
+  background: #2FAB3E;
+  border-color: #2FAB3E;
+  box-shadow:0px 0px 0px 2px #fff inset;
+}
+.notation label input:checked + span {
+  background: #fbf8cf;
+}
+select.math_select {
+  margin: 0 3px;
+  border: 1px solid #ccc;
+}
+#Go {
+  width: 200px;
+  margin: 25px auto 0;
+}
+#Go > span {
+  display: block;
+  padding: 10px 0;
+  font-size: 1.8em;
+  color: #fff;
+  background: #2FAB3E;
+  border-bottom: 3px solid #22832E;
+  text-align: center;
+  cursor: pointer;
+}
+#Go:hover {
+  padding-top: 2px;
+}
+#Go:hover > span {
+  border-bottom-width: 1px;
+}
+.help-order {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.help-order > li {
+  position: relative;
+  padding-left: 1.2em;
+}
+.help-order > li > .n {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.help-order > li + li {
+  margin-top: 10px;
+}
+.help-order > li > .n,
+.help-order .title {
+  font-weight: bold;
+  color: #2FAB3E;
+}
+.help-order .title {
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+}
+.help-order .des {
+  margin-top: 5px;
+  font-size: 1.2rem;
+}
+.help-order .des > em {
+  font-weight: bold;
+}
+.note {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.note > li {
+  position: relative;
+  padding-left: 1.2em;
+  font-size: 1.1rem;
+  color: #555555;
+}
+.note > li > .n {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
